@@ -1,0 +1,166 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= ROOT ================= */
+.home-root {
+  font-family: "Segoe UI", Arial, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle at top, #334155, #1f2933 60%);
+  color: white;
+  position: relative;
+}
+
+/* ================= FLOATING CHEM IONS ================= */
+.ion {
+  position: absolute;
+  font-weight: bold;
+  font-size: 16px;
+  opacity: 0.25;
+  animation: ionFloat 12s infinite ease-in-out;
+}
+
+@keyframes ionFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+  100% { transform: translateY(0); }
+}
+
+.ion.h { color: #93c5fd; }
+.ion.oh { color: #bfdbfe; }
+
+.ion1 { top: 15%; left: 20%; animation-delay: 0s; }
+.ion2 { top: 65%; left: 30%; animation-delay: 2s; }
+.ion3 { top: 25%; right: 22%; animation-delay: 4s; }
+.ion4 { bottom: 20%; right: 35%; animation-delay: 6s; }
+
+/* ================= LAB BUBBLES ================= */
+.bubble {
+  position: absolute;
+  bottom: -20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(147,197,253,0.25);
+  animation: bubbleRise 8s infinite ease-in;
+}
+
+@keyframes bubbleRise {
+  to {
+    transform: translateY(-110vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* ================= MAIN CARD ================= */
+.card {
+  position: relative;
+  z-index: 3;
+  background: rgba(31,41,51,0.55);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  padding: 45px 40px;
+  max-width: 540px;
+  text-align: center;
+
+  box-shadow:
+    0 35px 70px rgba(0,0,0,0.7),
+    inset 0 0 25px rgba(147,197,253,0.12);
+
+  transform: perspective(900px) rotateX(6deg);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(147,197,253,0.6),
+    rgba(31,41,51,0.2)
+  );
+  filter: blur(14px);
+  z-index: -1;
+}
+
+/* ================= TITLES ================= */
+h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  letter-spacing: 0.6px;
+}
+
+.subtitle {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 18px;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+/* ================= LITMUS WAVE ================= */
+.litmus {
+  margin: 25px auto;
+  width: 120px;
+  height: 10px;
+  background: linear-gradient(
+    90deg,
+    #93c5fd,
+    #1f2933,
+    #93c5fd
+  );
+  border-radius: 10px;
+  animation: litmusFlow 3s infinite linear;
+}
+
+@keyframes litmusFlow {
+  to { background-position: 120px; }
+}
+
+/* ================= BUTTON ================= */
+button {
+  margin-top: 28px;
+  padding: 16px 34px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  background: linear-gradient(
+    135deg,
+    #1f2933,
+    #93c5fd
+  );
+  color: white;
+
+  box-shadow:
+    0 15px 30px rgba(0,0,0,0.5),
+    inset 0 0 10px rgba(255,255,255,0.15);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 22px 40px rgba(0,0,0,0.7);
+}
+
+/* ================= FOOTER ================= */
+.note {
+  margin-top: 16px;
+  font-size: 12px;
+  opacity: 0.75;
+}
